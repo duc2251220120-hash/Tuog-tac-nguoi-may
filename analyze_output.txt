@@ -1,0 +1,88 @@
+﻿Analyzing career_global...                                      
+
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\common\widgets\cg_app_bar.dart:226:33 - deprecated_member_use
+   info - Dangling library doc comment - lib\common\widgets\cg_avatar.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\common\widgets\cg_bottom_nav.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\common\widgets\cg_button.dart:1:1 - dangling_library_doc_comments
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\common\widgets\cg_button.dart:106:52 - deprecated_member_use
+   info - Dangling library doc comment - lib\common\widgets\cg_job_card.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\common\widgets\cg_post_card.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\common\widgets\cg_text_field.dart:1:1 - dangling_library_doc_comments
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\common\widgets\cg_text_field.dart:219:46 - deprecated_member_use
+   info - Dangling library doc comment - lib\core\constants\app_colors.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\core\constants\app_dimensions.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\core\constants\app_text_styles.dart:1:1 - dangling_library_doc_comments
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\constants\app_text_styles.dart:176:32 - deprecated_member_use
+   info - Dangling library doc comment - lib\core\routes\app_routes.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: 'package:flutter/material.dart' - lib\core\routes\app_routes.dart:5:8 - unused_import
+   info - Dangling library doc comment - lib\core\theme\app_theme.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\auth\presentation\screens\forgot_password_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\auth\presentation\screens\login_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\auth\presentation\screens\onboarding_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\auth\presentation\screens\otp_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\auth\presentation\screens\register_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\auth\presentation\screens\reset_password_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\auth\presentation\screens\splash_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../common/widgets/cg_button.dart' - lib\features\auth\presentation\screens\splash_screen.dart:12:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\screens\splash_screen.dart:83:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\screens\splash_screen.dart:95:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\screens\splash_screen.dart:124:53 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\screens\splash_screen.dart:224:54 - deprecated_member_use
+   info - Dangling library doc comment - lib\features\calendar\presentation\screens\calendar_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\connections\presentation\screens\connect_friends_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\connections\presentation\screens\explore_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../common/widgets/cg_app_bar.dart' - lib\features\connections\presentation\screens\explore_screen.dart:9:8 - unused_import
+warning - Unused import: '../../../../common/widgets/cg_button.dart' - lib\features\connections\presentation\screens\explore_screen.dart:11:8 - unused_import
+   info - Dangling library doc comment - lib\features\connections\presentation\screens\friends_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../common/widgets/cg_app_bar.dart' - lib\features\connections\presentation\screens\friends_screen.dart:7:8 - unused_import
+warning - Unused import: '../../../../common/widgets/cg_button.dart' - lib\features\connections\presentation\screens\friends_screen.dart:9:8 - unused_import
+   info - Dangling library doc comment - lib\features\events\presentation\screens\events_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../common/widgets/cg_button.dart' - lib\features\events\presentation\screens\events_screen.dart:8:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\events\presentation\screens\events_screen.dart:67:42 - deprecated_member_use
+   info - Dangling library doc comment - lib\features\guide\presentation\screens\guide_screen.dart:1:1 - dangling_library_doc_comments
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\guide\presentation\screens\guide_screen.dart:40:68 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\guide\presentation\screens\guide_screen.dart:72:74 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\guide\presentation\screens\guide_screen.dart:85:82 - deprecated_member_use
+   info - Dangling library doc comment - lib\features\home\presentation\screens\home_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\jobs\presentation\screens\applied_jobs_screen.dart:1:1 - dangling_library_doc_comments
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\jobs\presentation\screens\applied_jobs_screen.dart:55:58 - deprecated_member_use
+   info - Dangling library doc comment - lib\features\jobs\presentation\screens\apply_job_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../common/widgets/cg_text_field.dart' - lib\features\jobs\presentation\screens\apply_job_screen.dart:11:8 - unused_import
+   info - Dangling library doc comment - lib\features\jobs\presentation\screens\job_detail_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\jobs\presentation\screens\job_filter_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\jobs\presentation\screens\job_search_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\jobs\presentation\screens\job_suggestions_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\jobs\presentation\screens\saved_jobs_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: 'package:flutter_screenutil/flutter_screenutil.dart' - lib\features\jobs\presentation\screens\saved_jobs_screen.dart:3:8 - unused_import
+warning - Unused import: '../../../../core/constants/app_text_styles.dart' - lib\features\jobs\presentation\screens\saved_jobs_screen.dart:5:8 - unused_import
+   info - Dangling library doc comment - lib\features\main_navigation\main_navigation_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\mentor\presentation\screens\find_mentor_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\mentor\presentation\screens\mentor_profile_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\messages\presentation\screens\chat_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../common/widgets/cg_app_bar.dart' - lib\features\messages\presentation\screens\chat_screen.dart:7:8 - unused_import
+   info - Dangling library doc comment - lib\features\notifications\presentation\screens\notifications_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../core/constants/app_dimensions.dart' - lib\features\notifications\presentation\screens\notifications_screen.dart:6:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\notifications\presentation\screens\notifications_screen.dart:57:67 - deprecated_member_use
+   info - Dangling library doc comment - lib\features\profile\presentation\screens\analytics_screen.dart:1:1 - dangling_library_doc_comments
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\profile\presentation\screens\analytics_screen.dart:65:54 - deprecated_member_use
+   info - Dangling library doc comment - lib\features\profile\presentation\screens\complete_profile_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\profile\presentation\screens\cv_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\profile\presentation\screens\edit_profile_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../core/constants/app_text_styles.dart' - lib\features\profile\presentation\screens\edit_profile_screen.dart:6:8 - unused_import
+   info - Dangling library doc comment - lib\features\profile\presentation\screens\my_profile_screen.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\profile\presentation\screens\profile_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../common/widgets/cg_app_bar.dart' - lib\features\profile\presentation\screens\profile_screen.dart:8:8 - unused_import
+   info - Dangling library doc comment - lib\features\search\presentation\screens\search_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../common/widgets/cg_app_bar.dart' - lib\features\search\presentation\screens\search_screen.dart:7:8 - unused_import
+   info - Dangling library doc comment - lib\features\settings\presentation\screens\settings_screen.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../../../../core/constants/app_dimensions.dart' - lib\features\settings\presentation\screens\settings_screen.dart:6:8 - unused_import
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\settings\presentation\screens\settings_screen.dart:88:5 - deprecated_member_use
+   info - Dangling library doc comment - lib\main.dart:1:1 - dangling_library_doc_comments
+
+flutter : 78 issues found. (ran in 2.6s)
+At line:1 char:1
++ flutter analyze 2>&1 | Out-File -FilePath "analyze_output.txt" -Encod ...
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (78 issues found. (ran in 2.6s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
