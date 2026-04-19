@@ -59,6 +59,20 @@ import '../../features/search/presentation/screens/search_screen.dart';
 
 // Settings
 import '../../features/settings/presentation/screens/settings_screen.dart';
+import '../../features/settings/presentation/screens/account_settings_screen.dart';
+import '../../features/settings/presentation/screens/privacy_settings_screen.dart';
+import '../../features/settings/presentation/screens/notification_settings_screen.dart';
+import '../../features/settings/presentation/screens/appearance_screen.dart';
+import '../../features/settings/presentation/screens/help_support_screen.dart';
+import '../../features/settings/presentation/screens/referral_screen.dart';
+import '../../features/settings/presentation/screens/security_screen.dart';
+import '../../features/settings/presentation/screens/other_features_screen.dart';
+import '../../features/settings/presentation/screens/edit_settings_profile_screen.dart';
+import '../../features/settings/presentation/screens/data_security_screen.dart';
+import '../../features/settings/presentation/screens/feedback_screen.dart';
+import '../../features/settings/presentation/screens/saved_items_screen.dart';
+import '../../features/settings/presentation/screens/interview_guide_screen.dart';
+import '../../features/settings/presentation/screens/language_region_screen.dart';
 
 // Calendar & Guide
 import '../../features/calendar/presentation/screens/calendar_screen.dart';
@@ -68,48 +82,9 @@ import '../../features/guide/presentation/screens/guide_screen.dart';
 import '../../features/home/presentation/screens/create_post_screen.dart';
 import '../../features/home/presentation/screens/comments_screen.dart';
 
-/// Định nghĩa các route name constants
-class AppRoutePaths {
-  static const splash = '/';
-  static const onboarding = '/onboarding';
-  static const login = '/login';
-  static const register = '/register';
-  static const otp = '/otp';
-  static const forgotPassword = '/forgot-password';
-  static const resetPassword = '/reset-password';
-  static const home = '/home';
-  static const profile = '/profile';
-  static const editProfile = '/profile/edit';
-  static const cv = '/profile/cv';
-  static const cvPreview = '/profile/cv-preview';
-  static const completeProfile = '/complete-profile';
-  static const analytics = '/analytics';
-  static const jobSearch = '/jobs';
-  static const jobDetail = '/jobs/detail';
-  static const jobFilter = '/jobs/filter';
-  static const jobSuggestions = '/jobs/suggestions';
-  static const savedJobs = '/jobs/saved';
-  static const appliedJobs = '/jobs/applied';
-  static const applyJob = '/jobs/apply';
-  static const company = '/company';
-  static const explore = '/explore';
-  static const friends = '/friends';
-  static const connectFriends = '/friends/connect';
-  static const chat = '/chat';
-  static const notifications = '/notifications';
-  static const events = '/events';
-  static const findMentor = '/mentor';
-  static const mentorProfile = '/mentor/profile';
-  static const bookMentor = '/mentor/book';
-  static const search = '/search';
-  static const settings = '/settings';
-  static const calendar = '/calendar';
-  static const guide = '/guide';
-  // ✅ Đổi từ '/home/create-post' → '/create-post'
-  static const createPost = '/create-post';
-  // ✅ Đổi từ '/home/comments' → '/comments'
-  static const comments = '/comments';
-}
+import 'route_paths.dart';
+export 'route_paths.dart';
+
 
 final GoRouter appRouter = GoRouter(
   initialLocation: AppRoutePaths.splash,
@@ -270,6 +245,54 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutePaths.settings,
       builder: (_, __) => const SettingsScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsAccount,
+      builder: (_, __) => const AccountSettingsScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsPrivacy,
+      builder: (_, __) => const PrivacySettingsScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsNotifications,
+      builder: (_, __) => const NotificationSettingsScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsAppearance,
+      builder: (_, __) => const AppearanceScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsLanguage,
+      builder: (_, __) => const LanguageRegionScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsHelp,
+      builder: (_, __) => const HelpSupportScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsReferral,
+      builder: (_, __) => const ReferralScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsSecurity,
+      builder: (_, __) => const SecurityScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsFeatures,
+      builder: (_, __) => const OtherFeaturesScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsEditProfile,
+      builder: (_, __) => const EditSettingsProfileScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsData,
+      builder: (_, __) => const DataSecurityScreen(),
+    ),
+    GoRoute(
+      path: AppRoutePaths.settingsFeedback,
+      builder: (_, __) => const FeedbackScreen(),
     ),
 
     // ─── Calendar & Guide ───────────────────────────────────────────────────

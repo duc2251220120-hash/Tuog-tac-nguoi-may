@@ -1,106 +1,150 @@
-﻿/// settings_screen.dart
-library;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_text_styles.dart';
-import '../../../../common/widgets/cg_app_bar.dart';
+import '../../../../core/constants/app_dimensions.dart';
+import '../../../../core/routes/route_paths.dart';
+import '../widgets/settings_tile.dart';
+import '../widgets/settings_card.dart';
+import '../widgets/settings_header.dart';
 
-class SettingsScreen extends StatefulWidget {
+class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
-  @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
-  bool _notifJob = true;
-  bool _notifConnect = true;
-  bool _notifMessage = false;
-  bool _darkMode = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: CGAppBar(title: 'Cài đặt'),
+      appBar: AppBar(
+        title: const Text('Cài đặt'),
+        backgroundColor: AppColors.white,
+        elevation: 0,
+        foregroundColor: AppColors.textPrimary,
+        centerTitle: false,
+      ),
       body: ListView(
+        padding: EdgeInsets.all(AppDimensions.screenPaddingH),
         children: [
-          _SettingGroup('Thông báo', [
-            _SwitchTile('Việc làm mới', _notifJob, (v) => setState(() => _notifJob = v)),
-            _SwitchTile('Kết nối mới', _notifConnect, (v) => setState(() => _notifConnect = v)),
-            _SwitchTile('Tin nhắn', _notifMessage, (v) => setState(() => _notifMessage = v)),
-          ]),
-          _SettingGroup('Giao diện', [
-            _SwitchTile('Chế độ tối', _darkMode, (v) => setState(() => _darkMode = v)),
-          ]),
-          _SettingGroup('Tài khoản', [
-            _NavTile('Bảo mật & Mật khẩu', Icons.lock_outline_rounded),
-            _NavTile('Quyền riêng tư', Icons.privacy_tip_outlined),
-            _NavTile('Dữ liệu & Lưu trữ', Icons.storage_outlined),
-            _NavTile('Ngôn ngữ', Icons.language_rounded),
-          ]),
-          _SettingGroup('Hỗ trợ', [
-            _NavTile('Trợ giúp & FAQ', Icons.help_outline_rounded),
-            _NavTile('Gửi phản hồi', Icons.feedback_outlined),
-            _NavTile('Điều khoản dịch vụ', Icons.description_outlined),
-          ]),
+          SettingsHeader(
+            name: 'Nguyễn Văn Bảo',
+            role: 'Senior Frontend Developer · FPT Software',
+            onViewProfile: () => context.push(AppRoutePaths.profile),
+          ),
+          SizedBox(height: 20.h),
+          SettingsCard(
+            children: [
+              SettingsTile(
+                icon: Icons.person_outline_rounded,
+                iconColor: Colors.blue,
+                iconBgColor: Colors.blue.withValues(alpha: 0.1),
+                title: 'Tài khoản',
+                subtitle: 'Email, mật khẩu, số điện thoại',
+                onTap: () => context.push(AppRoutePaths.settingsAccount),
+              ),
+              const Divider(height: 1),
+              SettingsTile(
+                icon: Icons.shield_outlined,
+                iconColor: AppColors.success,
+                iconBgColor: AppColors.successLight,
+                title: 'Quyền riêng tư',
+                subtitle: 'Ai có thể xem hồ sơ của bạn',
+                onTap: () => context.push(AppRoutePaths.settingsPrivacy),
+              ),
+              const Divider(height: 1),
+              SettingsTile(
+                icon: Icons.star_outline_rounded,
+                iconColor: Colors.orange,
+                iconBgColor: Colors.orange.withValues(alpha: 0.1),
+                title: 'Tính năng khác',
+                subtitle: 'Các tính năng nâng cao',
+                onTap: () => context.push(AppRoutePaths.settingsFeatures),
+              ),
+              const Divider(height: 1),
+              SettingsTile(
+                icon: Icons.notifications_none_rounded,
+                iconColor: AppColors.warning,
+                iconBgColor: AppColors.warningLight,
+                title: 'Thông báo',
+                subtitle: 'Cài đặt thông báo đẩy & email',
+                onTap: () => context.push(AppRoutePaths.settingsNotifications),
+              ),
+            ],
+          ),
+          SizedBox(height: 20.h),
+          SettingsCard(
+            children: [
+              SettingsTile(
+                icon: Icons.language_rounded,
+                iconColor: Colors.purple,
+                iconBgColor: Colors.purple.withValues(alpha: 0.1),
+                title: 'Ngôn ngữ & Vùng',
+                subtitle: 'Tiếng Việt · Việt Nam',
+                onTap: () => context.push(AppRoutePaths.settingsLanguage),
+              ),
+              const Divider(height: 1),
+              SettingsTile(
+                icon: Icons.help_outline_rounded,
+                iconColor: Colors.orange,
+                iconBgColor: Colors.orange.withValues(alpha: 0.1),
+                title: 'Trợ giúp & Hỗ trợ',
+                subtitle: 'FAQ, liên hệ & báo cáo lỗi',
+                onTap: () => context.push(AppRoutePaths.settingsHelp),
+              ),
+              const Divider(height: 1),
+              SettingsTile(
+                icon: Icons.color_lens_outlined,
+                iconColor: AppColors.primary,
+                iconBgColor: AppColors.primaryLight,
+                title: 'Giao diện',
+                subtitle: 'Sáng / Tối',
+                onTap: () => context.push(AppRoutePaths.settingsAppearance),
+              ),
+              const Divider(height: 1),
+              SettingsTile(
+                icon: Icons.info_outline_rounded,
+                iconColor: AppColors.textSecondary,
+                iconBgColor: AppColors.surfaceLight,
+                title: 'Gửi phản hồi',
+                subtitle: 'Phiên bản 2.5.1',
+                onTap: () => context.push(AppRoutePaths.settingsFeedback),
+              ),
+            ],
+          ),
           SizedBox(height: 24.h),
+          SettingsCard(
+            children: [
+              SettingsTile(
+                icon: Icons.logout_rounded,
+                title: 'Đăng xuất',
+                isDestructive: true,
+                trailing: const SizedBox.shrink(),
+                onTap: () {
+                  // TODO: To be implemented logout logic
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text('Đăng xuất'),
+                      content: const Text('Bạn có chắc chắn muốn đăng xuất?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text('Hủy'),
+                        ),
+                        TextButton(
+                          onPressed: () => context.go(AppRoutePaths.login),
+                          child: const Text('Đăng xuất', style: TextStyle(color: AppColors.error)),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+          SizedBox(height: 40.h),
         ],
       ),
     );
   }
-}
-
-class _SettingGroup extends StatelessWidget {
-  final String title;
-  final List<Widget> children;
-  const _SettingGroup(this.title, this.children);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.fromLTRB(20.w, 20.h, 20.w, 8.h),
-          child: Text(title, style: AppTextStyles.label.copyWith(color: AppColors.textHint, fontWeight: FontWeight.w600)),
-        ),
-        Container(
-          color: AppColors.white,
-          child: Column(children: children),
-        ),
-      ],
-    );
-  }
-}
-
-class _SwitchTile extends StatelessWidget {
-  final String label;
-  final bool value;
-  final ValueChanged<bool> onChanged;
-  const _SwitchTile(this.label, this.value, this.onChanged);
-
-  @override
-  Widget build(BuildContext context) => SwitchListTile(
-    title: Text(label, style: AppTextStyles.bodyMedium),
-    value: value,
-    onChanged: onChanged,
-    activeThumbColor: AppColors.primary,
-    contentPadding: EdgeInsets.symmetric(horizontal: 20.w),
-  );
-}
-
-class _NavTile extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  const _NavTile(this.label, this.icon);
-
-  @override
-  Widget build(BuildContext context) => ListTile(
-    leading: Icon(icon, color: AppColors.textSecondary, size: 22.r),
-    title: Text(label, style: AppTextStyles.bodyMedium),
-    trailing: Icon(Icons.chevron_right_rounded, color: AppColors.textHint),
-    contentPadding: EdgeInsets.symmetric(horizontal: 20.w),
-    onTap: () {},
-  );
 }
