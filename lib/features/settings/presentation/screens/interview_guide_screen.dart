@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_text_styles.dart';
 import '../../../../core/constants/app_dimensions.dart';
-import '../widgets/settings_card.dart';
 
 class InterviewGuideScreen extends StatelessWidget {
   const InterviewGuideScreen({super.key});
@@ -11,102 +10,146 @@ class InterviewGuideScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: const Text('Cẩm nang phỏng vấn'),
-        backgroundColor: AppColors.white,
-        elevation: 0,
-        foregroundColor: AppColors.textPrimary,
-      ),
-      body: ListView(
-        padding: EdgeInsets.all(AppDimensions.screenPaddingH),
+      backgroundColor: const Color(0xFFF8F9FA),
+      body: Column(
         children: [
-          // Banner
-          Container(
-            padding: EdgeInsets.all(20.r),
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [AppColors.info, Color(0xFF2196F3)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              borderRadius: BorderRadius.circular(20.r),
-              image: DecorationImage(
-                image: const NetworkImage('https://placeholder.com/rocket'),
-                alignment: Alignment.centerRight,
-                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.1), BlendMode.dstATop),
-                fit: BoxFit.none,
-              ),
-            ),
-            child: Row(
+          SafeArea(
+            bottom: false,
+            left: false,
+            right: false,
+            child: _buildCustomAppBar(context),
+          ),
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.rocket_launch_rounded, color: AppColors.white, size: 24.r),
-                          SizedBox(width: 8.w),
-                          Text(
-                            'Chuẩn bị phỏng vấn thành công',
-                            style: AppTextStyles.bodyMediumBold.copyWith(color: AppColors.white),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 8.h),
-                      Text(
-                        'Hướng dẫn từng bước để tự tin trong mọi buổi phỏng vấn',
-                        style: AppTextStyles.caption.copyWith(color: AppColors.white.withOpacity(0.9)),
-                      ),
-                    ],
-                  ),
-                ),
+                _buildBlueBanner(),
+                SizedBox(height: 24.h),
+                _buildMenuItem('📋', 'Chuẩn bị trước phỏng vấn', onTap: () {}),
+                SizedBox(height: 16.h),
+                _buildMenuItem('💻', 'Kỹ năng kỹ thuật', onTap: () {}),
+                SizedBox(height: 16.h),
+                _buildMenuItem('🎯', 'Trong buổi phỏng vấn', onTap: () {}),
+                SizedBox(height: 16.h),
+                _buildMenuItem('📬', 'Sau phỏng vấn', onTap: () {}),
+                SizedBox(height: 24.h),
+                _buildFaqSection(),
+                SizedBox(height: 40.h),
               ],
             ),
           ),
-          SizedBox(height: 24.h),
-
-          SettingsCard(
-            children: [
-              _buildGuideItem(Icons.edit_note_rounded, 'Chuẩn bị trước phỏng vấn'),
-              const Divider(height: 1),
-              _buildGuideItem(Icons.laptop_mac_rounded, 'Kỹ năng kỹ thuật'),
-              const Divider(height: 1),
-              _buildGuideItem(Icons.groups_rounded, 'Trong buổi phỏng vấn'),
-              const Divider(height: 1),
-              _buildGuideItem(Icons.mail_outline_rounded, 'Sau phỏng vấn'),
-            ],
-          ),
-          SizedBox(height: 24.h),
-
-          Text('Câu hỏi thường gặp', style: AppTextStyles.bodyMediumBold),
-          SizedBox(height: 12.h),
-          ...List.generate(5, (index) => _buildFaqItem(index + 1)),
-          
-          SizedBox(height: 40.h),
         ],
       ),
     );
   }
 
-  Widget _buildGuideItem(IconData icon, String title) {
-    return ListTile(
-      leading: Container(
-        padding: EdgeInsets.all(8.r),
-        decoration: BoxDecoration(
-          color: AppColors.surfaceLight,
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        child: Icon(icon, color: AppColors.textPrimary, size: 24.r),
+  Widget _buildCustomAppBar(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: AppColors.white,
+      padding: EdgeInsets.fromLTRB(0, 8.h, 16.w, 8.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(Icons.arrow_back, color: AppColors.textPrimary, size: 24.r),
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+          ),
+          SizedBox(height: 16.h),
+          Padding(
+            padding: EdgeInsets.only(left: 16.w),
+            child: Text(
+              'Cẩm nang phỏng vấn',
+              style: AppTextStyles.h1.copyWith(fontSize: 28.sp),
+            ),
+          ),
+          SizedBox(height: 8.h),
+        ],
       ),
-      title: Text(title, style: AppTextStyles.bodyMediumBold),
-      trailing: Icon(Icons.chevron_right_rounded, color: AppColors.textHint, size: 20.r),
-      onTap: () {},
     );
   }
 
-  Widget _buildFaqItem(int number) {
+  Widget _buildBlueBanner() {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(24.r),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF3B82F6), Color(0xFF1B6FD8)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(24.r),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: 0.2),
+            blurRadius: 15,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('🚀', style: TextStyle(fontSize: 32.sp)),
+          SizedBox(height: 12.h),
+          Text(
+            'Chuẩn bị phỏng vấn thành công',
+            style: AppTextStyles.h3.copyWith(color: AppColors.white),
+          ),
+          SizedBox(height: 6.h),
+          Text(
+            'Hướng dẫn từng bước để tự tin trong mọi buổi phỏng vấn',
+            style: AppTextStyles.caption.copyWith(
+              color: AppColors.white.withValues(alpha: 0.9),
+              fontSize: 13.sp,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMenuItem(String emoji, String title, {required VoidCallback onTap}) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(24.r),
+      child: Container(
+        padding: EdgeInsets.all(16.r),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(24.r),
+          border: Border.all(color: AppColors.border.withValues(alpha: 0.5)),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 44.r,
+              height: 44.r,
+              decoration: BoxDecoration(
+                color: const Color(0xFFF3F4F6),
+                borderRadius: BorderRadius.circular(12.r),
+              ),
+              alignment: Alignment.center,
+              child: Text(emoji, style: TextStyle(fontSize: 20.sp)),
+            ),
+            SizedBox(width: 16.w),
+            Expanded(
+              child: Text(
+                title,
+                style: AppTextStyles.bodyMediumBold,
+              ),
+            ),
+            Icon(Icons.chevron_right, color: AppColors.textHint.withValues(alpha: 0.7), size: 18.r),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFaqSection() {
     final questions = [
       'Hãy kể về bản thân bạn',
       'Điểm mạnh và điểm yếu của bạn là gì?',
@@ -114,26 +157,65 @@ class InterviewGuideScreen extends StatelessWidget {
       'Bạn kỳ vọng mức lương bao nhiêu?',
       'Bạn thấy mình ở đâu sau 5 năm?'
     ];
+
     return Container(
-      margin: EdgeInsets.only(bottom: 12.h),
-      padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(24.r),
+        border: Border.all(color: AppColors.border.withValues(alpha: 0.5)),
       ),
-      child: Row(
+      padding: EdgeInsets.all(20.r),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 28.r, height: 28.r,
-            decoration: BoxDecoration(color: AppColors.primaryLight, shape: BoxShape.circle),
-            alignment: Alignment.center,
-            child: Text(number.toString(), style: AppTextStyles.captionBold.copyWith(color: AppColors.primary)),
-          ),
-          SizedBox(width: 12.w),
-          Expanded(child: Text(questions[number - 1], style: AppTextStyles.bodySmall)),
-          Icon(Icons.chevron_right_rounded, color: AppColors.textHint, size: 20.r),
+          Text('Câu hỏi thường gặp', style: AppTextStyles.h4),
+          SizedBox(height: 16.h),
+          ...List.generate(questions.length, (index) {
+            return _buildFaqItem(index + 1, questions[index], isLast: index == questions.length - 1);
+          }),
         ],
       ),
     );
   }
+
+  Widget _buildFaqItem(int number, String question, {bool isLast = false}) {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 12.h),
+          child: Row(
+            children: [
+              Container(
+                width: 28.r,
+                height: 28.r,
+                decoration: const BoxDecoration(
+                  color: Color(0xFFEBF2FF),
+                  shape: BoxShape.circle,
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  number.toString(),
+                  style: TextStyle(
+                    color: AppColors.primary,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12.sp,
+                  ),
+                ),
+              ),
+              SizedBox(width: 12.w),
+              Expanded(
+                child: Text(
+                  question,
+                  style: AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary),
+                ),
+              ),
+              Icon(Icons.chevron_right, color: AppColors.textHint.withValues(alpha: 0.5), size: 16.r),
+            ],
+          ),
+        ),
+        if (!isLast) Divider(color: AppColors.divider, height: 1),
+      ],
+    );
+  }
 }
+
